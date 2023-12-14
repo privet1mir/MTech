@@ -210,11 +210,11 @@ bootstrap1.intervals()
 
 st.title("Гипотеза 2.")
 
-st.write('Работники старше 35 лет (age) пропускают в течение года более 2 рабочих дней (work_days) по болезни значимо чаще своих более молодых коллег.')
+st.write('Работники старше ' + str(age) + ' лет (age) пропускают в течение года более 2 рабочих дней (work_days) по болезни значимо чаще своих более молодых коллег.')
 
 fig4 = plt.figure(figsize=(9, 5))
 df['Ранжировка'] = df['Возраст']
-df['Ранжировка'] = df['Ранжировка'].map(lambda x: 'До 35' if x < age else 'Старшe ' + str(age))
+df['Ранжировка'] = df['Ранжировка'].map(lambda x: 'До ' + str(age) if x < age else 'Старшe ' + str(age))
 sns.histplot(data=df, x="Ранжировка")
 plt.title('Количество пропущенных дней работниками до ' + str(age) + ' и старше')
 st.pyplot(fig4)
@@ -244,8 +244,8 @@ class mean_test_between_young_and_aged:
         df_cut = self.df[self.df['Количество больничных дней'] > self.work_days]
 
         #создадим две подвыборки с пропущенными дням, соответствующие мужчинам и женщинам
-        aged = df_cut[df_cut['Ранжировка'] == 'До 35']['Количество больничных дней'].values
-        young = df_cut[df_cut['Ранжировка'] == 'Старше 35']['Количество больничных дней'].values
+        aged = df_cut[df_cut['Ранжировка'] == 'До ' + str(age)]['Количество больничных дней'].values
+        young = df_cut[df_cut['Ранжировка'] == 'Старше ' + str(age)]['Количество больничных дней'].values
 
         return aged, young
 
