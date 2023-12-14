@@ -245,7 +245,7 @@ class mean_test_between_young_and_aged:
 
         #создадим две подвыборки с пропущенными дням, соответствующие мужчинам и женщинам
         aged = df_cut[df_cut['Ранжировка'] == 'До ' + str(age)]['Количество больничных дней'].values
-        young = df_cut[df_cut['Ранжировка'] == 'Старше ' + str(age)]['Количество больничных дней'].values
+        young = df_cut[df_cut['Ранжировка'] == 'Старшe ' + str(age)]['Количество больничных дней'].values
 
         return aged, young
 
@@ -307,7 +307,7 @@ class bootstrap_for_young_and_aged():
     def aged_and_young(self):
         #создадим две подвыборки, соответствующие мужчинам и женщинам
         aged = df[df['Ранжировка'] == 'До ' + str(age)]['Количество больничных дней'].values
-        young = df[df['Ранжировка'] == 'Старше '+ str(age)]['Количество больничных дней'].values
+        young = df[df['Ранжировка'] == 'Старшe ' + str(age)]['Количество больничных дней'].values
 
         return aged, young
 
