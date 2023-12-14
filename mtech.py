@@ -42,7 +42,7 @@ st.write('После этого можно ознакомиться с визу�
 
 st.title("Пожалуйста загрузите ваш csv файл.")
 
-df = pd.read_csv('/Users/ivvvv/Desktop/python project/М.Тех_Данные_к_ТЗ_DS.csv', sep='\,', engine='python', header=None, encoding='cp1251').apply(lambda x: x.str.replace(r"\"","", regex=True))
+df = pd.read_csv('М.Тех_Данные_к_ТЗ_DS.csv', sep='\,', engine='python', header=None, encoding='cp1251').apply(lambda x: x.str.replace(r"\"","", regex=True))
 rename_columns = {0: df[0][0], 1: df[1][0], 2: df[2][0]}
 df.rename(rename_columns, axis=1, inplace=True)
 df.drop(0, axis=0, inplace=True)
